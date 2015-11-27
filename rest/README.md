@@ -16,7 +16,7 @@ LICENSE file.
 -->
 
 # REST Endpoint Driver for YCSB
-This driver enables YCSB to work with databases accessible via the JDBC protocol.
+This driver enables YCSB to work with databases accessible via the REST Endpoint. REST Endpoint should have a POST resource which gets SQL Select query as a string and returns the result set in 'application/json'
 
 ## Getting Started
 ### 1. Start your database
@@ -27,26 +27,18 @@ This driver enables YCSB to work with databases accessible via the JDBC protocol
 
 ### 6. Running a workload
 Before you can actually run the workload, you need to "load" the data first.
-
-```sh
-bin/ycsb load jdbc -P workloads/workloada -P db.properties -cp mysql-connector-java.jar
-```
+Currently it only supports readonly workloads
 
 You can run the workload:
 
 ```sh
-bin/ycsb rest jdbc -P workloads/workloada -P db.properties -cp mysql-connector-java.jar
+bin/ycsb rest jdbc -P workloads/workloadc-rest -P db.properties -cp mysql-connector-java.jar
 ```
 
 ## Configuration Properties
 
 ```sh
-db.driver=com.mysql.jdbc.Driver				# The JDBC driver class to use.
-db.url=jdbc:mysql://127.0.0.1:3306/ycsb		# The Database connection URL.
-db.user=admin								# User name for the connection.
-db.passwd=admin								# Password for the connection.
-jdbc.fetchsize=10							# The JDBC fetch size hinted to the driver.
-jdbc.autocommit=true						# The JDBC connection auto-commit property for the driver.
+db.url=http://yourserver/restendpoint
 ```
 
 Please refer to https://github.com/brianfrankcooper/YCSB/wiki/Core-Properties for all other YCSB core properties.
