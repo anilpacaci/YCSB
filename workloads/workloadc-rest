@@ -34,5 +34,8 @@ insertproportion=0
 
 requestdistribution=zipfian
 
+# DB Parameters
+db.url=http://localhost:8080/kronos/rest/query/ycsb/select
+
 
 

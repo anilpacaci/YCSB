@@ -34,5 +34,8 @@ insertproportion=0
 
 requestdistribution=zipfian
 
-
-
+# DB Parameters
+db.driver=org.postgresql.Driver
+db.url=jdbc:postgresql://postgres:5432/ycsb
+db.user=postgres
+db.passwd=postgres
